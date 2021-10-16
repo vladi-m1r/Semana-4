@@ -15,7 +15,7 @@ class Main {
 
 	// EJERCICIO 3
 	public static boolean arrayTieneX(int [] array, int n, int x) {
-		// RECURSIVA
+		// RECURSIVA: Encontrar un elemento es un array devolviendo true o false
 		if(array[n] == x) {
 			return true;
 		}else if(n == array.length - 1) {
@@ -26,7 +26,7 @@ class Main {
 	}
 
 	public static boolean arrayTieneX2(int [] array, int x) {
-		// ITERATIVA
+		// ITERATIVA: Encontrar un elemento es un array devolviendo true o false
 		for (int i = 0; i < array.length; i++) {
 			if(array[i] == x) 
 				return true;
@@ -36,7 +36,7 @@ class Main {
 
 	// EJERCICIO 4
 	public static int encontrarPos(int [] array, int pos, int x) {
-		// RECURSIVA SECUENCIAL
+		// RECURSIVA SECUENCIAL: Encontrar la posicion donde deberia estar x en un arreglo
 		if(pos == 1 && x < array[pos + 1]) {
 			return 1;
 		}else if(pos == array.length - 1) {
@@ -49,7 +49,7 @@ class Main {
 	}
 
 	public static int encontrarPos2(int [] array, int x) {
-		// RECURSIVA ITERATIVA
+		// RECURSIVA ITERATIVA: Encontrar la posicion donde deberia estar x en un arreglo
 		int i = 0;
 		for (; i < array.length; i++) {
 			if(i == 1 && x < array[i]) {
@@ -63,7 +63,7 @@ class Main {
 	}
 
 	public static int encontrarPos3(int [] array, int x) {
-		// RECURSIVA ITERATIVA CON BUSQUEDA BINARIA
+		// RECURSIVA ITERATIVA CON BUSQUEDA BINARIA: Encontrar la posicion donde deberia estar x en un arreglo
 		int ini = -1;
 		int fin = array.length;
 		int i = (fin - ini) / 2;
@@ -84,11 +84,12 @@ class Main {
 	}
 	
 	public static int encontrarPos4(int [] array, int x) {
+		// Encontrar la posicion donde deberia estar x en un arreglo
 		return encontrarPos4(array, -1, array.length, (array.length - 1)/2, x);
 	}
 	
 	public static int encontrarPos4(int [] array, int ini, int fin, int i, int x) {
-		// RECURSIVA CON BUSQUEDA BINARIA
+		// RECURSIVA CON BUSQUEDA BINARIA: Encontrar la posicion donde deberia estar x en un arreglo
 		if(i == -1 || i == array.length - 1 || x <= array[i + 1] && x > array[i]) {
 			return i + 2;
 		}else {
@@ -104,6 +105,7 @@ class Main {
 
 	// EJERCICIO 5
 	public static int factorial(int x) {
+		// Factorial de un numero
 		if(x == 0) {
 			return 1;
 		}else {
@@ -113,6 +115,7 @@ class Main {
 
 	// EJERCICIO 6
 	public static int fibonacci(int x) {
+		// Serie fibonacci
 		if(x == 0) {
 			return 0;
 		}else if(x == 1){
@@ -123,6 +126,7 @@ class Main {
 	}
 
 	public static int tribonacci(int x) {
+		// Serie tribonacci
 		if(x == 0 || x == 1) {
 			return 0;
 		}else if(x == 2) {
