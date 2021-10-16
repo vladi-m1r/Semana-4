@@ -1,3 +1,12 @@
+
+/*
+ * Todos los ejercicios han sido resueltos
+ * Link del documento:
+ * https://drive.google.com/file/d/1ARbs8EgPFp0iBUWSuEanuDclODgOrKbu/view?usp=sharing
+ * 
+ */
+
+
 class Main {
 
 	public static void main(String[] args) {
@@ -11,27 +20,29 @@ class Main {
 		System.out.println("encontrar4: " + encontrarPos4(array, n));
 		System.out.println("fibonacci: " + fibonacci(2));
 		System.out.println("tribonacci: " + tribonacci(10));
+		
+		tiempoDeEjecucion();
 	}
 
 	// EJERCICIO 3
-	public static boolean arrayTieneX(int [] array, int n, int x) {
+	public static String arrayTieneX(int [] array, int n, int x) {
 		// RECURSIVA: Encontrar un elemento es un array devolviendo true o false
 		if(array[n] == x) {
-			return true;
+			return "Si";
 		}else if(n == array.length - 1) {
-			return false;
+			return "No";
 		}else {
 			return arrayTieneX(array, n + 1, x);
 		}
 	}
 
-	public static boolean arrayTieneX2(int [] array, int x) {
+	public static String arrayTieneX2(int [] array, int x) {
 		// ITERATIVA: Encontrar un elemento es un array devolviendo true o false
 		for (int i = 0; i < array.length; i++) {
 			if(array[i] == x) 
-				return true;
+				return "Si";
 		}
-		return false;
+		return "No";
 	}
 
 	// EJERCICIO 4
@@ -134,5 +145,47 @@ class Main {
 		}else {
 			return tribonacci(x - 1) + tribonacci(x - 2) + tribonacci(x - 3);
 		}
+	}
+	
+	// Diferencia entre los tiempos de ejecuion
+	public static void tiempoDeEjecucion() {
+		long a, fin;
+		int [] array = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 
+				110, 120, 130, 140, 150, 160, 170, 180, 190, 200,
+				210, 220, 230, 240, 250, 260, 270, 280, 290, 300};
+		
+		int n = 2968;
+		
+		a = System.nanoTime();
+		arrayTieneX(array, 0, n);
+		fin = System.nanoTime() - a;
+		System.out.println("\nEjercicio 1");
+		System.out.println("a) Recursiva: " + fin);
+		
+		a = System.nanoTime();
+		arrayTieneX2(array, n);
+		fin = System.nanoTime() - a;
+		System.out.println("b) Iterativa: " + fin);
+		
+		System.out.println("\nEjercicio 2");
+		a = System.nanoTime();
+		encontrarPos(array, 0, n);
+		fin = System.nanoTime() - a;
+		System.out.println("A): " + fin);
+		
+		a = System.nanoTime();
+		encontrarPos2(array, n);
+		fin = System.nanoTime() - a;
+		System.out.println("B): " + fin);
+		
+		a = System.nanoTime();
+		encontrarPos3(array, n);
+		fin = System.nanoTime() - a;
+		System.out.println("C): " + fin);
+		
+		a = System.nanoTime();
+		encontrarPos4(array, n);
+		fin = System.nanoTime() - a;
+		System.out.println("D): " + fin);
 	}
 }
